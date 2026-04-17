@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MusaleM for Software</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* 🌌 الخلفية */
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background: radial-gradient(circle at top,#0b1220,#020617 60%);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ✨ الخلفية المتحركة */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 30%,rgba(56,189,248,0.18),transparent 40%),
+        radial-gradient(circle at 80% 70%,rgba(255,255,255,0.06),transparent 50%);
+    animation:bgMove 12s ease-in-out infinite alternate;
+    z-index:-1;
+}
+
+@keyframes bgMove{
+    from{transform:translateY(0px);}
+    to{transform:translateY(25px);}
+}
+
+/* 🎬 INTRO */
+#intro{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(2,6,23,0.95);
+    backdrop-filter:blur(25px);
+    z-index:9999;
+    transition:1s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    transform:scale(1.15);
+    pointer-events:none;
+}
+
+#intro img{
+    width:120px;
+    filter:drop-shadow(0 0 25px #38bdf8);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{transform:translateY(-15px);}
+}
+
+#intro h1{
+    font-size:28px;
+    font-weight:700;
+    margin-top:15px;
+}
+
+#enterBtn{
+    margin-top:25px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#38bdf8,#0ea5e9);
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#enterBtn:hover{
+    transform:scale(1.07);
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:30px 15px;
+}
+
+.logo{
+    width:80px;
+    filter:drop-shadow(0 0 15px #38bdf8);
+}
+
+h1{
+    font-weight:700;
+}
+
+/* SEARCH */
+.search-box input{
+    width:90%;
+    max-width:400px;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    color:#fff;
+    font-weight:600;
+    outline:none;
+    transition:0.3s;
+}
+
+.search-box input:focus{
+    box-shadow:0 0 20px #38bdf8;
+    transform:scale(1.03);
+}
+
+/* GRID */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+
+    opacity:0;
+    transform:translateY(40px) scale(0.95);
+    transition:0.8s cubic-bezier(.2,.8,.2,1);
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.card.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.04);
+    box-shadow:0 25px 50px rgba(0,0,0,0.6);
+}
+
+.card img{
+    width:75px;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    margin-top:10px;
+    padding:10px;
+    border-radius:25px;
+    background:linear-gradient(45deg,#38bdf8,#0ea5e9);
+    color:#000;
+    font-weight:700;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    filter:brightness(1.2);
+    transform:scale(1.02);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#94a3b8;
+}
+
+/* 🇪🇬 FLAG */
+.flag{
+    width:22px;
+    height:16px;
+    vertical-align:middle;
+    margin:0 5px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    h1{font-size:18px;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🎬 INTRO -->
+<div id="intro">
+    <img src="mslogo.png">
+    <h1>MusaleM for Software</h1>
+    <button id="enterBtn">دخول</button>
+</div>
+
+<!-- HEADER -->
+<header>
+    <img src="mslogo.png" class="logo">
+    <h1>MusaleM for Software</h1>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="🔍 ابحث عن برنامج...">
+    </div>
+</header>
+
+<div class="container" id="products"></div>
+
+<footer>
+    © 2004 - 2026 MusaleM for Software <br>
+	 <svg class="flag" viewBox="0 0 3 2">
+        <rect width="3" height="2" fill="#ce1126"/>
+        <rect width="3" height="1.33" y="0.67" fill="#ffffff"/>
+        <rect width="3" height="0.67" y="1.33" fill="#000000"/>
+    </svg>
+    Made with ❤️ from Egypt  
+</footer>
+
+<script src="download.js"></script>
+
+<script>
+
+/* INTRO */
+const intro = document.getElementById("intro");
+const enterBtn = document.getElementById("enterBtn");
+
+/* 🔥 تحقق إذا المستخدم دخل قبل كده */
+if(sessionStorage.getItem("entered") === "true"){
+    intro.style.display = "none";
+}
+
+enterBtn.onclick = () => {
+    intro.classList.add("hide");
+
+    setTimeout(()=>{
+        intro.remove();
+        sessionStorage.setItem("entered","true"); // 💾 حفظ الحالة
+    },1000);
+};
+
+/* DATA */
+const PRODUCTS = [
+{ id:"netcontrol", name:"NetControl", desc:"إدارة الشبكات بسهولة", logo:"products/netcontrol/logo.png", page:"products/netcontrol/index.html" },
+{ id:"securedesk", name:"SecureDesk", desc:"حماية الأجهزة", logo:"products/securedesk/logo.png", page:"products/securedesk/index.html" },
+{ id:"dataflow", name:"DataFlow", desc:"تحليل البيانات", logo:"products/dataflow/logo.png", page:"products/dataflow/index.html" }
+];
+
+const container = document.getElementById("products");
+
+function render(list){
+    container.innerHTML = "";
+
+    list.forEach(p=>{
+        const dl = DOWNLOADS[p.id];
+
+        const div = document.createElement("div");
+        div.className = "card";
+
+        div.innerHTML = `
+            <img src="${p.logo}">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <small>v${dl.version}</small>
+            <a class="btn" href="${p.page}">التفاصيل</a>
+            <a class="btn" href="${dl.url}">تحميل</a>
+        `;
+
+        container.appendChild(div);
+    });
+
+    observe();
+}
+
+/* SCROLL */
+function observe(){
+    const cards = document.querySelectorAll(".card");
+
+    const obs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+            if(e.isIntersecting){
+                e.target.classList.add("show");
+            }
+        });
+    },{threshold:0.15});
+
+    cards.forEach(c=>obs.observe(c));
+}
+
+render(PRODUCTS);
+
+/* SEARCH */
+document.getElementById("search").addEventListener("input",(e)=>{
+    const val = e.target.value.toLowerCase();
+
+    const filtered = PRODUCTS.filter(p =>
+        p.name.toLowerCase().includes(val) ||
+        p.desc.toLowerCase().includes(val)
+    );
+
+    render(filtered);
+});
+
+</script>
+
+</body>
+</html>

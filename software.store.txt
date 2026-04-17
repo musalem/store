@@ -1,0 +1,29 @@
+software.store/
+│
+├── index.html
+├── download.js
+│
+├── products/
+│
+│   ├── netcontrol/
+│   │   ├── index.html
+│   │   ├── logo.png
+│   │   ├── img1.png
+│   │   ├── img2.png
+│   │   └── img3.png
+│
+│   ├── securedesk/
+│   │   ├── index.html
+│   │   ├── logo.png
+│   │   ├── img1.png
+│   │   ├── img2.png
+│   │   └── img3.png
+│
+│   ├── dataflow/
+│   │   ├── index.html
+│   │   ├── logo.png
+│   │   ├── img1.png
+│   │   ├── img2.png
+│   │   └── img3.png
+│
+└── assets/
