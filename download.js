@@ -1,8 +1,8 @@
 const DOWNLOADS = {
 
-netcontrol:{
-    version:"1.0",
-    url:"https://example.com/netcontrol.zip"
+lanflix:{
+    version:"1.2",
+    url:"https://www.dropbox.com/scl/fi/uosan3gihfgk2ex4yvf93/LANFLIX-v1.2.zip?rlkey=kggzkj4jt0fi2w4kc1dm13rmk&st=gkebvi6a&dl=1"
 },
 
 securedesk:{
