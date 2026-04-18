@@ -50,7 +50,7 @@ body{
     background:rgba(56,189,248,0.2);
 }
 
-/* 🖼️ LOGO */
+/* LOGO */
 .logo{
     width:120px;
     margin-top:50px;
@@ -69,7 +69,7 @@ h1{
     margin-top:10px;
 }
 
-/* DESCRIPTION */
+/* TEXT */
 p{
     color:#cbd5e1;
     line-height:1.9;
@@ -162,10 +162,7 @@ p{
     }
 }
 
-/* ========================= */
-/* 🔥 LIGHTBOX (OVERLAY) */
-/* ========================= */
-
+/* LIGHTBOX */
 .lightbox{
     position:fixed;
     inset:0;
@@ -174,7 +171,6 @@ p{
     align-items:center;
     justify-content:center;
     z-index:999;
-    animation:fade 0.2s ease;
 }
 
 .lightbox img{
@@ -182,20 +178,8 @@ p{
     max-height:85%;
     border-radius:12px;
     box-shadow:0 0 40px rgba(56,189,248,0.3);
-    animation:zoom 0.2s ease;
 }
 
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-@keyframes zoom{
-    from{transform:scale(0.9);}
-    to{transform:scale(1);}
-}
-
-/* CLOSE */
 .close{
     position:absolute;
     top:20px;
@@ -203,10 +187,8 @@ p{
     font-size:28px;
     cursor:pointer;
     color:#fff;
-    opacity:0.8;
 }
 
-/* NAV */
 .nav{
     position:absolute;
     top:50%;
@@ -218,7 +200,6 @@ p{
     padding:10px 15px;
     cursor:pointer;
     border-radius:12px;
-    transition:0.3s;
 }
 
 .nav:hover{
@@ -242,42 +223,56 @@ p{
 
     <h1>🚀 LANFLIX</h1>
 
-    <p>🎬 منصة بث فيديو خاصة (LAN & WAN)</p>
+    <p>منصة بث فيديو خاصة (LAN & WAN)</p>
 
+    <!-- INTRO -->
     <div class="card">
         <h3>📌 نبذة عامة</h3>
         <p>
-            LANFLIX هو نظام بث فيديو متكامل يتم استضافته محليًا، يتيح لك إدارة ومشاركة مكتبة الفيديو الخاصة بك عبر الشبكة المحلية (LAN) أو عبر الإنترنت (WAN) بشكل آمن وسريع.
+            LANFLIX هو نظام بث فيديو متكامل يتم استضافته محليًا، يتيح لك إدارة ومشاركة مكتبة الفيديو الخاصة بك عبر الشبكة المحلية (LAN) أو عبر الإنترنت (WAN) بشكل آمن وسريع.<br><br>
+            يعتمد على لوحة تحكم احترافية مع محرك بث مدمج، ليمنحك تحكمًا كاملًا في المحتوى مع أداء عالي وتجربة استخدام سهلة.
         </p>
     </div>
 
+    <!-- FEATURES -->
     <div class="card">
         <h3>✨ المميزات الرئيسية</h3>
         <p>
-            ⚡ بث سريع داخل الشبكة المحلية<br>
-            🌍 وصول عن بُعد عبر الإنترنت<br>
-            ▶ استكمال المشاهدة<br>
-            🧠 ذاكرة ذكية<br>
-            📡 بث متكيف<br>
-            🎨 واجهة حديثة
+            ⚡ بث سريع داخل الشبكة المحلية (LAN)<br>
+            🌍 إمكانية الوصول عن بُعد عبر الإنترنت (WAN)<br>
+            ▶ استكمال المشاهدة من آخر نقطة<br>
+            🧠 تحميل فوري للفيديوهات المتكررة (ذاكرة ذكية)<br>
+            📡 بث متكيف يدعم التقديم وإكمال التحميل<br>
+            ⬇ تشغيل مباشر أو تحميل بنقرة واحدة<br>
+            🎨 واجهة حديثة<br>
+            🔐 حماية بكلمة مرور (اختياري)<br>
+            📊 إحصائيات مباشرة<br>
+            🖼 صور مصغرة تلقائيًا<br>
+            🌐 دعم العربية والإنجليزية<br>
+            📁 قوالب قابلة للتخصيص
         </p>
     </div>
 
+    <!-- ENGINE -->
     <div class="card">
         <h3>🧠 محرك البث</h3>
         <p>
-            ✔ دعم التقديم داخل الفيديو<br>
-            ✔ بث مباشر من الذاكرة<br>
-            ✔ كاش ذكي<br>
+            ✔ دعم التقديم داخل الفيديو (Seek)<br>
+            ✔ بث مباشر من الذاكرة بدون نسخ<br>
+            ✔ نظام كاش ذكي لتسريع التحميل<br>
+            ✔ توصيل سريع ومستقر للملفات
         </p>
     </div>
 
+    <!-- DASHBOARD -->
     <div class="card">
         <h3>🖥 لوحة التحكم</h3>
         <p>
-            ✔ فيديوهات<br>
-            ✔ مشاهدات<br>
-            ✔ تحميلات<br>
+            ✔ إجمالي عدد الفيديوهات<br>
+            ✔ الفيديوهات النشطة<br>
+            ✔ عدد المشاهدات<br>
+            ✔ عدد التحميلات<br>
+            ✔ عدد المستخدمين المتصلين حاليًا
         </p>
     </div>
 
@@ -298,11 +293,9 @@ p{
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
     <span class="close" onclick="closeLightbox()">✖</span>
-
     <button class="nav left" onclick="prevImg(event)">‹</button>
     <button class="nav right" onclick="nextImg(event)">›</button>
-
-    <img id="lightboxImg" src="">
+    <img id="lightboxImg">
 </div>
 
 <script src="../../download.js"></script>
@@ -311,9 +304,9 @@ p{
 
 function goBack(){
     if(document.referrer){
-        window.history.back();
+        history.back();
     } else {
-        window.location.href = "../../index.html";
+        location.href = "../../index.html";
     }
 }
 
@@ -332,10 +325,10 @@ if (typeof DOWNLOADS !== "undefined" && DOWNLOADS.lanflix) {
 const images = ["img1.png","img2.png","img3.png"];
 let currentIndex = 0;
 
-function openLightbox(index){
-    currentIndex = index;
+function openLightbox(i){
+    currentIndex = i;
     document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightboxImg").src = images[currentIndex];
+    document.getElementById("lightboxImg").src = images[i];
 }
 
 function closeLightbox(e){
@@ -355,16 +348,6 @@ function prevImg(e){
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     document.getElementById("lightboxImg").src = images[currentIndex];
 }
-
-/* KEYBOARD */
-document.addEventListener("keydown", (e)=>{
-    const box = document.getElementById("lightbox");
-    if(box.style.display !== "flex") return;
-
-    if(e.key === "Escape") closeLightbox();
-    if(e.key === "ArrowRight") nextImg(new Event("click"));
-    if(e.key === "ArrowLeft") prevImg(new Event("click"));
-});
 
 </script>
 
