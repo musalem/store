@@ -209,6 +209,34 @@ p{
 .left{ left:20px; }
 .right{ right:20px; }
 
+.meta-card{
+    background:rgba(56,189,248,0.08);
+    border:1px solid rgba(56,189,248,0.25);
+    padding:16px;
+    border-radius:14px;
+    margin-top:18px;
+    text-align:right;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.meta-card:hover{
+    transform:translateY(-3px);
+    background:rgba(56,189,248,0.12);
+}
+
+.meta-title{
+    font-weight:700;
+    margin-bottom:10px;
+    color:#38bdf8;
+}
+
+.meta-item{
+    color:#cbd5e1;
+    margin:6px 0;
+    font-size:14px;
+}
+
 </style>
 
 </head>
@@ -286,7 +314,16 @@ p{
     <p id="version"></p>
     <p style="color:#94a3b8;">📦 حجم البرنامج: 10 ميجابايت</p>
 
-    <a id="downloadBtn" class="btn">⬇ تحميل البرنامج</a>
+   <a id="downloadBtn" class="btn">⬇ تحميل البرنامج</a>
+
+<!-- 📌 META INFO CARD -->
+<div class="meta-card">
+
+    <div class="meta-title">ℹ️ معلومات الإصدار</div>
+
+    <div class="meta-item">📅 تاريخ النشر: 2026-04-18</div>
+    <div class="meta-item">💻 نظام التشغيل: Windows</div>
+    <div class="meta-item">👨‍💻 المطور: Mustafa Shaheen</div>
 
 </div>
 
