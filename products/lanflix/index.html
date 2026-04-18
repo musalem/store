@@ -27,7 +27,7 @@ body{
     text-align:center;
 }
 
-/* 🔙 BACK BUTTON (Apple style) */
+/* 🔙 BACK BUTTON */
 .back-btn{
     position:fixed;
     top:15px;
@@ -50,7 +50,7 @@ body{
     background:rgba(56,189,248,0.2);
 }
 
-/* 🖼️ MAIN LOGO */
+/* 🖼️ LOGO */
 .logo{
     width:120px;
     margin-top:50px;
@@ -75,7 +75,7 @@ p{
     line-height:1.9;
 }
 
-/* 🧊 CARD (IMPROVED) */
+/* CARD */
 .card{
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(12px);
@@ -83,16 +83,13 @@ p{
     border-radius:16px;
     margin-top:20px;
     border:1px solid rgba(255,255,255,0.08);
-
     transition:0.3s;
 }
 
-/* hover effect */
 .card:hover{
     transform:translateY(-5px);
 }
 
-/* 🎯 IMPORTANT FIX */
 .card h3{
     text-align:center;
     font-weight:700;
@@ -100,12 +97,12 @@ p{
 }
 
 .card p{
-    text-align:right;     /* ✔️ الحل الأساسي */
-    line-height:2;        /* ✔️ تحسين القراءة */
+    text-align:right;
+    line-height:2;
     color:#cbd5e1;
 }
 
-/* 🖼️ GALLERY */
+/* GALLERY */
 .gallery{
     display:flex;
     gap:10px;
@@ -126,7 +123,7 @@ p{
     transform:scale(1.05);
 }
 
-/* DOWNLOAD BUTTON */
+/* BUTTON */
 .btn{
     display:inline-block;
     margin-top:20px;
@@ -151,7 +148,6 @@ p{
 
 /* MOBILE */
 @media(max-width:600px){
-
     .gallery img{
         width:100%;
         max-width:250px;
@@ -166,101 +162,153 @@ p{
     }
 }
 
+/* ========================= */
+/* 🔥 LIGHTBOX (OVERLAY) */
+/* ========================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    animation:fade 0.2s ease;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:85%;
+    border-radius:12px;
+    box-shadow:0 0 40px rgba(56,189,248,0.3);
+    animation:zoom 0.2s ease;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes zoom{
+    from{transform:scale(0.9);}
+    to{transform:scale(1);}
+}
+
+/* CLOSE */
+.close{
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:28px;
+    cursor:pointer;
+    color:#fff;
+    opacity:0.8;
+}
+
+/* NAV */
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:40px;
+    background:rgba(255,255,255,0.1);
+    border:none;
+    color:#fff;
+    padding:10px 15px;
+    cursor:pointer;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.nav:hover{
+    background:rgba(56,189,248,0.3);
+}
+
+.left{ left:20px; }
+.right{ right:20px; }
+
 </style>
 
 </head>
 
 <body>
 
-<!-- 🔙 BACK BUTTON -->
 <button class="back-btn" onclick="goBack()">⬅ رجوع</button>
 
 <div class="container">
 
-    <!-- LOGO -->
     <img src="logo.png" class="logo">
 
-    <!-- TITLE -->
     <h1>🚀 LANFLIX</h1>
 
-    <!-- DESCRIPTION -->
-    <p>
-        🎬 منصة بث فيديو خاصة (LAN & WAN)
-    </p>
+    <p>🎬 منصة بث فيديو خاصة (LAN & WAN)</p>
 
-    <!-- ABOUT -->
     <div class="card">
         <h3>📌 نبذة عامة</h3>
         <p>
             LANFLIX هو نظام بث فيديو متكامل يتم استضافته محليًا، يتيح لك إدارة ومشاركة مكتبة الفيديو الخاصة بك عبر الشبكة المحلية (LAN) أو عبر الإنترنت (WAN) بشكل آمن وسريع.
-            <br><br>
-            يعتمد على لوحة تحكم احترافية مع محرك بث مدمج، ليمنحك تحكمًا كاملًا في المحتوى مع أداء عالي وتجربة استخدام سهلة.
         </p>
     </div>
 
-    <!-- FEATURES -->
     <div class="card">
         <h3>✨ المميزات الرئيسية</h3>
         <p>
-            ⚡ بث سريع داخل الشبكة المحلية (LAN)<br>
-            🌍 إمكانية الوصول عن بُعد عبر الإنترنت (WAN)<br>
-            ▶ استكمال المشاهدة من آخر نقطة<br>
-            🧠 تحميل فوري للفيديوهات المتكررة (ذاكرة ذكية)<br>
-            📡 بث متكيف يدعم التقديم وإكمال التحميل<br>
-            ⬇ تشغيل مباشر أو تحميل بنقرة واحدة<br>
-            🎨 واجهة حديثة<br>
-            🔐 حماية بكلمة مرور (اختياري)<br>
-            📊 إحصائيات مباشرة<br>
-            🖼 صور مصغرة تلقائيًا<br>
-            🌐 دعم العربية والإنجليزية<br>
-            📁 قوالب قابلة للتخصيص
+            ⚡ بث سريع داخل الشبكة المحلية<br>
+            🌍 وصول عن بُعد عبر الإنترنت<br>
+            ▶ استكمال المشاهدة<br>
+            🧠 ذاكرة ذكية<br>
+            📡 بث متكيف<br>
+            🎨 واجهة حديثة
         </p>
     </div>
 
-    <!-- ENGINE -->
     <div class="card">
         <h3>🧠 محرك البث</h3>
         <p>
-            ✔ دعم التقديم داخل الفيديو (Seek)<br>
-            ✔ بث مباشر من الذاكرة بدون نسخ<br>
-            ✔ نظام كاش ذكي لتسريع التحميل<br>
-            ✔ توصيل سريع ومستقر للملفات
+            ✔ دعم التقديم داخل الفيديو<br>
+            ✔ بث مباشر من الذاكرة<br>
+            ✔ كاش ذكي<br>
         </p>
     </div>
 
-    <!-- DASHBOARD -->
     <div class="card">
         <h3>🖥 لوحة التحكم</h3>
         <p>
-            ✔ إجمالي عدد الفيديوهات<br>
-            ✔ الفيديوهات النشطة<br>
-            ✔ عدد المشاهدات<br>
-            ✔ عدد التحميلات<br>
-            ✔ عدد المستخدمين المتصلين حاليًا
+            ✔ فيديوهات<br>
+            ✔ مشاهدات<br>
+            ✔ تحميلات<br>
         </p>
     </div>
 
     <!-- GALLERY -->
     <div class="gallery">
-        <img src="img1.png">
-        <img src="img2.png">
-        <img src="img3.png">
+        <img src="img1.png" onclick="openLightbox(0)">
+        <img src="img2.png" onclick="openLightbox(1)">
+        <img src="img3.png" onclick="openLightbox(2)">
     </div>
 
-    <!-- VERSION + SIZE -->
     <p id="version"></p>
     <p style="color:#94a3b8;">📦 حجم البرنامج: 10 ميجابايت</p>
 
-    <!-- DOWNLOAD -->
     <a id="downloadBtn" class="btn">⬇ تحميل البرنامج</a>
 
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close" onclick="closeLightbox()">✖</span>
+
+    <button class="nav left" onclick="prevImg(event)">‹</button>
+    <button class="nav right" onclick="nextImg(event)">›</button>
+
+    <img id="lightboxImg" src="">
 </div>
 
 <script src="../../download.js"></script>
 
 <script>
 
-/* BACK BUTTON */
 function goBack(){
     if(document.referrer){
         window.history.back();
@@ -269,14 +317,54 @@ function goBack(){
     }
 }
 
-/* DATA */
-let data = DOWNLOADS["LANFLIX"];
+/* DOWNLOAD */
+if (typeof DOWNLOADS !== "undefined" && DOWNLOADS.lanflix) {
+    let data = DOWNLOADS.lanflix;
 
-document.getElementById("version").innerText =
-"الإصدار: v" + data.version;
+    document.getElementById("version").innerText =
+    "الإصدار: v" + data.version;
 
-document.getElementById("downloadBtn").href =
-data.url;
+    document.getElementById("downloadBtn").href =
+    data.url;
+}
+
+/* LIGHTBOX */
+const images = ["img1.png","img2.png","img3.png"];
+let currentIndex = 0;
+
+function openLightbox(index){
+    currentIndex = index;
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightboxImg").src = images[currentIndex];
+}
+
+function closeLightbox(e){
+    if(!e || e.target.id === "lightbox"){
+        document.getElementById("lightbox").style.display = "none";
+    }
+}
+
+function nextImg(e){
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById("lightboxImg").src = images[currentIndex];
+}
+
+function prevImg(e){
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById("lightboxImg").src = images[currentIndex];
+}
+
+/* KEYBOARD */
+document.addEventListener("keydown", (e)=>{
+    const box = document.getElementById("lightbox");
+    if(box.style.display !== "flex") return;
+
+    if(e.key === "Escape") closeLightbox();
+    if(e.key === "ArrowRight") nextImg(new Event("click"));
+    if(e.key === "ArrowLeft") prevImg(new Event("click"));
+});
 
 </script>
 
